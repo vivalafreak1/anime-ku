@@ -13,6 +13,14 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
+    colors: {
+      color: {
+        primary: "#FEDD89", // Changed to red
+        accent: "#F2E9EB",
+        secondary: "#f8f8f8",
+        dark: "#1f1f1f",
+      },
+    },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/line-clamp")],
 };
