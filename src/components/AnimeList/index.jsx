@@ -4,13 +4,13 @@ import Link from "next/link";
 export default function AnimeList({ api }) {
   return (
     <div className="grid grid-cols-2 gap-4 px-4 mx-auto mb-8 max-w-screen-2xl sm:grid-cols-3 md:grid-cols-5">
-      {api.data?.map((anime, index) => {
-        return (
-          <Link
-            href={`/anime/${anime.mal_id}`}
-            className="transition-all cursor-pointer text-color-primary hover:text-color-accent"
-            key={index}
-          >
+      {api.data?.map((anime, index) => (
+        <Link
+          href={`/anime/${anime.mal_id}`}
+          className="relative block overflow-hidden transition-all rounded shadow-lg cursor-pointer text-color-primary hover:text-color-orange"
+          key={index}
+        >
+          <div className="relative h-full">
             <Image
               src={anime.images.webp.image_url}
               alt={anime.title}
@@ -18,12 +18,12 @@ export default function AnimeList({ api }) {
               height={300}
               className="object-cover w-full rounded max-h-96"
             />
-            <h3 className="p-4 font-bold md:text-xl text-md line-clamp-3">
+            <div className="absolute bottom-0 left-0 w-full h-24 p-4 font-bold bg-color-dark bg-opacity-80 md:text-xl">
               {anime.title}
-            </h3>
-          </Link>
-        );
-      })}
+            </div>
+          </div>
+        </Link>
+      ))}
     </div>
   );
 }

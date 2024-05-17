@@ -12,10 +12,12 @@ export default async function Page() {
 
   return (
     <>
+      {/* Anime Populer */}
       <section>
         <Header title="Populer" linkTitle="Lihat Semua" linkHref="/populer" />
         <AnimeList api={topAnime} />
       </section>
+      {/* Anime Ongoing */}
       <section>
         <Header
           title="Sedang Berjalan"
