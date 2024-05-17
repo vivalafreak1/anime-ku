@@ -11,7 +11,7 @@ export default function VideoPlayer({ youtubeId }) {
   };
 
   const option = {
-    width: "300",
+    width: "350",
     height: "250",
   };
 

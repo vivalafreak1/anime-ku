@@ -1,13 +1,42 @@
+"use client";
+
 import { getAnimeResponse } from "@/libs/api";
 import VideoPlayer from "@/components/Utilities/VideoPlayer";
 import Image from "next/image";
+import React, { useState, useEffect } from "react";
+import ReactLoading from "react-loading";
 
-export default async function Page({ params: { id } }) {
-  const anime = await getAnimeResponse(`anime/${id}`);
-  const characterResponse = await getAnimeResponse(`anime/${id}/characters`);
+export default function Page({ params: { id } }) {
+  const [anime, setAnime] = useState(null);
+  const [characters, setCharacters] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Limit the characters to the first four
-  const limitedCharacters = characterResponse.data.slice(0, 6);
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+      const animeResponse = await getAnimeResponse(`anime/${id}`);
+      const characterResponse = await getAnimeResponse(
+        `anime/${id}/characters`
+      );
+
+      // Limit the characters to the first six
+      const limitedCharacters = characterResponse.data.slice(0, 6);
+
+      setAnime(animeResponse);
+      setCharacters(limitedCharacters);
+      setIsLoading(false);
+    };
+
+    fetchData();
+  }, [id]);
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <ReactLoading type="spin" color="#FEDD89" height={50} width={50} />
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col items-center min-h-screen p-8">
@@ -84,7 +113,7 @@ export default async function Page({ params: { id } }) {
       <div className="w-full max-w-screen-2xl">
         <h2 className="mb-4 text-2xl font-bold text-color-primary">Karakter</h2>
         <div className="flex gap-8 overflow-x-auto">
-          {limitedCharacters.map((char) => (
+          {characters.map((char) => (
             <div key={char.character.mal_id} className="flex-none w-60">
               <Image
                 src={char.character.images.webp.image_url}

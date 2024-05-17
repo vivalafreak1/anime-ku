@@ -17,6 +17,8 @@ export default async function Page() {
         <Header title="Populer" linkTitle="Lihat Semua" linkHref="/populer" />
         <AnimeList api={topAnime} />
       </section>
+      {/* Divider */}
+      <hr className="w-full mx-auto mb-8 border-t border-color-secondary max-w-screen-2xl" />
       {/* Anime Ongoing */}
       <section>
         <Header
