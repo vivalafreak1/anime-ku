@@ -12,13 +12,13 @@ export default async function Page() {
       <div className="flex flex-wrap gap-4 py-8">
         <Link
           href="/users/dashboard/collection"
-          className="px-4 py-3 text-xl font-bold bg-color-accent text-color-dark"
+          className="px-4 py-3 text-xl font-bold rounded-2xl bg-color-orange text-color-secondary hover:bg-color-primary hover:text-color-dark"
         >
           Koleksi
         </Link>
         <Link
           href="/users/dashboard/comment"
-          className="px-4 py-3 text-xl font-bold bg-color-accent text-color-dark"
+          className="px-4 py-3 text-xl font-bold rounded-2xl bg-color-orange text-color-secondary hover:bg-color-primary hover:text-color-dark"
         >
           Komentar
         </Link>
