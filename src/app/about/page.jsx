@@ -2,56 +2,56 @@ import Image from "next/image";
 
 const teamMembers = [
   {
-    name: "Mulyadi",
-    npm: 0,
+    name: "M. Mulyadi",
+    npm: 50420685,
     position: "Product Manager",
     photo: "/assets/susie.jpg",
   },
   {
-    name: "Another Name",
-    npm: 0,
+    name: "Daniel Ryan Simatupang",
+    npm: 50420333,
     position: "Ayanokoji",
     photo: "/assets/makima.jpg",
   },
   {
-    name: "Third Name",
-    npm: 0,
+    name: "Naufal Maulana Al Ghifari Irawan",
+    npm: 50420956,
     position: "Ayanokoji",
     photo: "/assets/makima.jpg",
   },
   {
-    name: "Fourth Name",
-    npm: 0,
+    name: "Rizky Bagaskara",
+    npm: 51420127,
     position: "Ayanokoji",
     photo: "/assets/makima.jpg",
   },
   {
-    name: "Fifth Name",
-    npm: 0,
+    name: "Mohammad Rizky",
+    npm: 50420734,
     position: "Ayanokoji",
     photo: "/assets/makima.jpg",
   },
   {
-    name: "Sixth Name",
-    npm: 0,
+    name: "Bimo Rinekso Nugroho",
+    npm: 50420285,
     position: "Ayanokoji",
     photo: "/assets/makima.jpg",
   },
   {
-    name: "Seventh Name",
-    npm: 0,
+    name: "Arif Fatullah",
+    npm: 50420223,
     position: "Ayanokoji",
     photo: "/assets/makima.jpg",
   },
   {
-    name: "Eighth Name",
-    npm: 0,
+    name: "Jossia Elang Abraham",
+    npm: 50420622,
     position: "Ayanokoji",
     photo: "/assets/makima.jpg",
   },
   {
-    name: "Ninth Name",
-    npm: 0,
+    name: "Arief Taufik Rahman",
+    npm: 50420221,
     position: "Ayanokoji",
     photo: "/assets/makima.jpg",
   },
@@ -60,7 +60,9 @@ const teamMembers = [
 const About = () => {
   return (
     <div className="flex flex-col items-center min-h-screen p-8 bg-gray-100">
-      <h1 className="mb-8 text-4xl font-bold text-color-primary">About Us</h1>
+      <h1 className="mb-8 text-4xl font-bold text-color-primary">
+        Tentang Kami
+      </h1>
       {/* First Row: One person */}
       <div className="flex flex-col items-center mb-8">
         <Image
@@ -81,7 +83,7 @@ const About = () => {
         </h4>
       </div>
       {/* Second Row: Eight persons with 4 persons per row */}
-      <div className="grid grid-cols-1 gap-32 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-20 md:grid-cols-2 lg:grid-cols-4">
         {teamMembers.slice(1).map((member, index) => (
           <div key={index} className="flex flex-col items-center">
             <Image

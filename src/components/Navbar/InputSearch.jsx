@@ -11,7 +11,7 @@ export default function InputSearch() {
   const handleSearch = (event) => {
     const keyword = searchRef.current.value;
 
-    if (!keyword || keyword.trim() == "") return;
+    if (!keyword || keyword.trim() === "") return;
 
     if (event.key === "Enter" || event.type === "click") {
       event.preventDefault();
@@ -20,14 +20,19 @@ export default function InputSearch() {
   };
 
   return (
-    <div className="relative">
+    <div className="relative w-full max-w-md">
       <input
         placeholder="Cari judul..."
-        className="w-full p-2 rounded"
+        className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
         ref={searchRef}
         onKeyDown={handleSearch}
+        aria-label="Search"
       />
-      <button className="absolute top-2 end-2" onClick={handleSearch}>
+      <button
+        className="absolute top-2 right-2"
+        onClick={handleSearch}
+        aria-label="Search Button"
+      >
         <MagnifyingGlass size={24} />
       </button>
     </div>
