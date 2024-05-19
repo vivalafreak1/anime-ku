@@ -5,6 +5,7 @@ import VideoPlayer from "@/components/Utilities/VideoPlayer";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import ReactLoading from "react-loading";
+import CollectionButton from "@";
 
 export default function Page({ params: { id } }) {
   const [anime, setAnime] = useState(null);
