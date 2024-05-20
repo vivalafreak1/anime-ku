@@ -11,7 +11,7 @@ export default function Header({ title }) {
   };
 
   return (
-    <div className="flex items-center justify-between mb-4">
+    <div className="flex items-center justify-between px-4 mx-auto mt-10 mb-8 max-w-screen-2xl">
       <button className="text-color-primary" onClick={handleBack}>
         <ArrowSquareLeft size={32} />
       </button>
