@@ -54,7 +54,6 @@ export default function Page({ params: { id } }) {
         <meta name="twitter:image" content={anime.data.images.webp.image_url} />
         <meta name="twitter:card" content={anime.data.images.webp.image_url} />
       </Head>
-      <div></div>
       {/* Row 1 */}
       <div className="flex flex-wrap justify-center w-full gap-8 mb-8 max-w-screen-2xl">
         <Image
