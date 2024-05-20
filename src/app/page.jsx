@@ -37,12 +37,14 @@ export default async function Page() {
       {/* Divider */}
       <hr className="w-full mx-auto mb-8 border-t border-color-secondary max-w-screen-2xl" />
       {/* Manga Populer */}
-      <Header
-        title="Manga populer"
-        linkTitle="Lihat semua"
-        linkHref="/ongoing"
-      />
-      <MangaList api={topManga} />
+      <section>
+        <Header
+          title="Manga populer"
+          linkTitle="Lihat semua"
+          linkHref="/ongoing"
+        />
+        <MangaList api={topManga} />
+      </section>
     </>
   );
 }
