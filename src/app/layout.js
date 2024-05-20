@@ -6,8 +6,8 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Anime Next",
-  description: "Website Anime Next",
+  title: "Wibu Nation",
+  description: "Tempatnya para wibu yang suka nonton anime dan manga",
 };
 
 export default function RootLayout({ children }) {

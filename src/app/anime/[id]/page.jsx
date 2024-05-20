@@ -5,6 +5,7 @@ import VideoPlayer from "@/components/Utilities/VideoPlayer";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import ReactLoading from "react-loading";
+import Head from "next/head";
 
 export default function Page({ params: { id } }) {
   const [anime, setAnime] = useState(null);
@@ -40,6 +41,19 @@ export default function Page({ params: { id } }) {
 
   return (
     <div className="flex flex-col items-center min-h-screen p-8">
+      <Head>
+        <title>{anime.data.title}</title>
+        <meta name="description" content={anime.data.synopsis} />
+        <meta property="og:title" content={anime.data.title} />
+        <meta property="og:description" content={anime.data.synopsis} />
+        <meta property="og:image" content={anime.data.images.webp.image_url} />
+        <meta property="og:url" content="http://localhost:3000/anime/[id]" />
+        <meta name="twitter:title" content={anime.data.title} />
+        <meta name="twitter:description" content={anime.data.synopsis} />
+        <meta name="twitter:image" content={anime.data.images.webp.image_url} />
+        <meta name="twitter:card" content={anime.data.images.webp.image_url} />
+      </Head>
+      <div></div>
       {/* Row 1 */}
       <div className="flex flex-wrap justify-center w-full gap-8 mb-8 max-w-screen-2xl">
         <Image
