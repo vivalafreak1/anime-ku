@@ -5,6 +5,7 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import ReactLoading from "react-loading";
 import CollectionButton from "@/components/AnimeList/CollectionButton";
+import Head from "next/head";
 
 export default function ClientPage({
   anime,
@@ -13,7 +14,7 @@ export default function ClientPage({
   userCollection,
 }) {
   const [isLoading, setIsLoading] = useState(true);
-
+  const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
   useEffect(() => {
     // Simulate loading to demonstrate loading state
     const timer = setTimeout(() => {
@@ -33,6 +34,18 @@ export default function ClientPage({
 
   return (
     <div className="flex flex-col items-center min-h-screen p-8">
+      <Head>
+        <title>{anime.data.title}</title>
+        <meta name="description" content={anime.data.synopsis} />
+        <meta property="og:title" content={anime.data.title} />
+        <meta property="og:description" content={anime.data.synopsis} />
+        <meta property="og:image" content={anime.data.images.webp.image_url} />
+        <meta property="og:url" content={`${baseURL}/anime/[id]`} />
+        <meta name="twitter:title" content={anime.data.title} />
+        <meta name="twitter:description" content={anime.data.synopsis} />
+        <meta name="twitter:image" content={anime.data.images.webp.image_url} />
+        <meta name="twitter:card" content={anime.data.images.webp.image_url} />
+      </Head>
       {/* Row 1 */}
       <div className="flex flex-wrap justify-center w-full gap-8 mb-8 max-w-screen-2xl">
         <Image
