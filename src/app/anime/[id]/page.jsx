@@ -12,6 +12,7 @@ export default function Page({ params: { id } }) {
   const [characters, setCharacters] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const baseURL = process.env.BASE_URL;
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
@@ -47,7 +48,7 @@ export default function Page({ params: { id } }) {
         <meta property="og:title" content={anime.data.title} />
         <meta property="og:description" content={anime.data.synopsis} />
         <meta property="og:image" content={anime.data.images.webp.image_url} />
-        <meta property="og:url" content="http://localhost:3000/anime/[id]" />
+        <meta property="og:url" content={`${baseURL}/anime/[id]`} />
         <meta name="twitter:title" content={anime.data.title} />
         <meta name="twitter:description" content={anime.data.synopsis} />
         <meta name="twitter:image" content={anime.data.images.webp.image_url} />
