@@ -20,6 +20,7 @@ module.exports = {
         secondary: "#f8f8f8",
         dark: "#1f1f1f",
         orange: "#ea580c",
+        blue: "#273248",
       },
     },
   },
