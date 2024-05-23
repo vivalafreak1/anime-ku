@@ -9,13 +9,15 @@ export default function InputSearch() {
   const router = useRouter();
 
   const handleSearch = (event) => {
-    const keyword = searchRef.current.value;
-
-    if (!keyword || keyword.trim() === "") return;
+    const keyword = searchRef.current.value.trim();
 
     if (event.key === "Enter" || event.type === "click") {
       event.preventDefault();
-      router.push(`/search/${keyword}`);
+      if (keyword) {
+        router.push(`/search?keyword=${encodeURIComponent(keyword)}`);
+      } else {
+        router.push("/search");
+      }
     }
   };
 

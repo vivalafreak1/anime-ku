@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import InputSearch from "./InputSearch";
 import { Outfit } from "next/font/google";
 import UserActionButton from "./UserActionButton";
@@ -18,12 +19,12 @@ export default function Navbar() {
           className={`${outfit.className} text-2xl font-bold text-gray-800`}
           aria-label="Home"
         >
-        <Image
-          src="/assets/header-logo.png"
-          alt="Header Logo"
-          width={250}
-          height={5}
-        />
+          <Image
+            src="/assets/header-logo.png"
+            alt="Header Logo"
+            width={120}
+            height={7}
+          />
         </Link>
         <InputSearch />
         <UserActionButton />

@@ -1,5 +1,6 @@
 // Footer.jsx
 import Link from "next/link";
+import Image from "next/image";
 import {
   FaFacebook,
   FaTwitter,
@@ -20,9 +21,12 @@ export default function Footer() {
       <div className="container flex flex-col items-center justify-between mx-auto space-y-8 md:flex-row md:space-y-0">
         {/* Logo and Description */}
         <div className="text-center md:text-left">
-          <h2 className={`${outfit.className} mb-2 text-2xl font-bold`}>
-            ANIMENEXT
-          </h2>
+          <Image
+            src="/assets/header-logo.png"
+            alt="Header Logo"
+            width={200}
+            height={20}
+          />
           <p className="text-sm text-gray-400">
             Your go-to platform for anime updates and reviews. As part of
             multimedia system project
