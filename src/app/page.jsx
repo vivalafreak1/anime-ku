@@ -11,7 +11,6 @@ export default async function Page() {
   const topAnime = await getAnimeResponse("top/anime", "limit=10");
   const ongoingAnime = await getAnimeResponse("seasons/now", "limit=10");
   const topManga = await getAnimeResponse("top/manga", "limit=10");
-
   return (
     <>
       {/* Anime Populer */}

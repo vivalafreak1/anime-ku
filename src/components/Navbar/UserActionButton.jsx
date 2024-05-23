@@ -12,7 +12,7 @@ export default async function UserActionButton() {
       {user && (
         <Link
           href="/users/dashboard"
-          className="py-2 hover:text-color-orange"
+          className="inline-block px-4 py-2 transition rounded bg-color-blue text-color-secondary hover:bg-color-primary hover:text-color-dark"
           aria-label="Dashboard"
         >
           Dashboard

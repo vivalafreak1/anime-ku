@@ -1,35 +1,28 @@
-// app/anime/[id]/page.js
-import { getAnimeResponse } from "@/libs/api";
+"use client";
+
 import VideoPlayer from "@/components/Utilities/VideoPlayer";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import ReactLoading from "react-loading";
+import CollectionButton from "@/components/AnimeList/CollectionButton";
 import Head from "next/head";
 
-export default function Page({ params: { id } }) {
-  const [anime, setAnime] = useState(null);
-  const [characters, setCharacters] = useState([]);
+export default function ClientPage({
+  anime,
+  characters,
+  user,
+  userCollection,
+}) {
   const [isLoading, setIsLoading] = useState(true);
-
-  const baseURL = process.env.BASE_URL;
+  const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
   useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      const animeResponse = await getAnimeResponse(`anime/${id}`);
-      const characterResponse = await getAnimeResponse(
-        `anime/${id}/characters`
-      );
-
-      // Limit the characters to the first six
-      const limitedCharacters = characterResponse.data.slice(0, 6);
-
-      setAnime(animeResponse);
-      setCharacters(limitedCharacters);
+    // Simulate loading to demonstrate loading state
+    const timer = setTimeout(() => {
       setIsLoading(false);
-    };
+    }, 500); // You can adjust this delay as needed
 
-    fetchData();
-  }, [id]);
+    return () => clearTimeout(timer);
+  }, []);
 
   if (isLoading) {
     return (
@@ -102,6 +95,15 @@ export default function Page({ params: { id } }) {
           <p className="mb-2 text-color-secondary">
             Jumlah episode: {anime.data.episodes}
           </p>
+          {!isLoading && user && (
+            <CollectionButton
+              anime_mal_id={anime.data.mal_id}
+              user_email={user.email}
+              anime_image={anime.data.images.webp.image_url}
+              anime_title={anime.data.title}
+              userCollection={userCollection}
+            />
+          )}
         </div>
       </div>
 
@@ -161,3 +163,5 @@ export default function Page({ params: { id } }) {
         </div>
       </div>
     </div>
+  );
+}
