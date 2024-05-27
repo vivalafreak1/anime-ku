@@ -1,20 +1,26 @@
+// app/anime/[id]/ClientPage.jsx
 "use client";
 
+import { useState, useEffect } from "react";
 import VideoPlayer from "@/components/Utilities/VideoPlayer";
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
 import ReactLoading from "react-loading";
 import CollectionButton from "@/components/AnimeList/CollectionButton";
 import Head from "next/head";
+import CommentInput from "@/components/AnimeList/CommentInput";
+import CommentBox from "@/components/AnimeList/CommentBox";
 
 export default function ClientPage({
   anime,
   characters,
   user,
   userCollection,
+  animeId, // Receive the anime ID as a prop
+  comments, // Receive the comments as a prop
 }) {
   const [isLoading, setIsLoading] = useState(true);
   const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
+
   useEffect(() => {
     // Simulate loading to demonstrate loading state
     const timer = setTimeout(() => {
@@ -161,6 +167,24 @@ export default function ClientPage({
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Divider */}
+      <hr className="w-full mb-8 border-t border-color-secondary max-w-screen-2xl" />
+
+      {/* Row 5: Comment */}
+      <div className="p-4">
+        <h3 className="mb-2 text-2xl text-color-primary">Comments</h3>
+        <CommentBox comments={comments} />
+
+        {user && (
+          <CommentInput
+            anime_mal_id={animeId}
+            user_email={user?.email}
+            username={user?.name}
+            anime_title={anime.data.title}
+          />
+        )}
       </div>
     </div>
   );

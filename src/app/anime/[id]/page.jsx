@@ -4,6 +4,7 @@ import { authUserSession } from "@/libs/auth";
 import prisma from "@/libs/prisma";
 import ClientPage from "./ClientPage";
 
+// Server component for data fetching
 export default async function Page({ params: { id } }) {
   const user = await authUserSession();
   const userCollection = user
@@ -17,12 +18,19 @@ export default async function Page({ params: { id } }) {
   // Limit the characters to the first six
   const limitedCharacters = characterResponse.data.slice(0, 6);
 
+  // Fetch comments for the anime
+  const comments = await prisma.comment.findMany({
+    where: { anime_mal_id: id },
+  });
+
   return (
     <ClientPage
       anime={animeResponse}
       characters={limitedCharacters}
       user={user}
       userCollection={userCollection}
+      animeId={id} // Pass the anime ID to the ClientPage component
+      comments={comments} // Pass the comments to the ClientPage component
     />
   );
 }
