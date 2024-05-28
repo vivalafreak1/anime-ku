@@ -1,3 +1,4 @@
+// components/AnimeList/CommentInput.jsx
 "use client";
 
 import { useRouter } from "next/navigation";
@@ -38,18 +39,21 @@ export default function CommentInput({
 
   return (
     <div className="flex flex-col gap-2">
-      {isCreated && <p className="text-color-primary"></p>}
+      {isCreated && (
+        <p className="text-color-primary">Comment posted successfully!</p>
+      )}
 
       <textarea
         onChange={handleInput}
         value={comment}
-        className="w-full h-32 p-4 text-xl"
+        className="w-full h-32 p-4 text-xl border rounded"
+        placeholder="Write your comment here..."
       />
       <button
         onClick={handlePosting}
-        className="px-3 py-2 w-52 bg-color-accent"
+        className="px-3 py-2 mt-2 rounded text-color-secondary bg-color-orange"
       >
-        Posting Komentar
+        Post Comment
       </button>
     </div>
   );

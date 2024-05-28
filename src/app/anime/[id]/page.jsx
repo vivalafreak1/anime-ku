@@ -1,4 +1,4 @@
-// app/anime/[id]/page.js
+// src/app/anime/[id]/page.jsx
 import { getAnimeResponse } from "@/libs/api";
 import { authUserSession } from "@/libs/auth";
 import prisma from "@/libs/prisma";
@@ -21,6 +21,7 @@ export default async function Page({ params: { id } }) {
   // Fetch comments for the anime
   const comments = await prisma.comment.findMany({
     where: { anime_mal_id: id },
+    orderBy: { createdAt: "desc" }, // Order comments by the creation date
   });
 
   return (

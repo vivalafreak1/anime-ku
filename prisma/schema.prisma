@@ -24,10 +24,11 @@ model Collection {
 }
 
 model Comment {
-  id            Int @id @default(autoincrement())
+  id            Int     @id @default(autoincrement())
   anime_mal_id  String 
   user_email    String
-  comment       String
+  comment       String  @db.Text // changed tet mode 
   username      String
   anime_title   String
+  createdAt     DateTime @default(now())
 }

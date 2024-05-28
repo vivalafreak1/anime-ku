@@ -1,4 +1,4 @@
-// app/anime/[id]/ClientPage.jsx
+// src/app/anime/[id]/ClientPage.jsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -173,18 +173,19 @@ export default function ClientPage({
       <hr className="w-full mb-8 border-t border-color-secondary max-w-screen-2xl" />
 
       {/* Row 5: Comment */}
-      <div className="p-4">
-        <h3 className="mb-2 text-2xl text-color-primary">Comments</h3>
-        <CommentBox comments={comments} />
-
+      <div className="w-full max-w-screen-2xl">
+        <h3 className="mb-2 text-2xl font-bold text-color-primary">Comments</h3>
         {user && (
-          <CommentInput
-            anime_mal_id={animeId}
-            user_email={user?.email}
-            username={user?.name}
-            anime_title={anime.data.title}
-          />
+          <div className="mb-4">
+            <CommentInput
+              anime_mal_id={animeId}
+              user_email={user?.email}
+              username={user?.name}
+              anime_title={anime.data.title}
+            />
+          </div>
         )}
+        <CommentBox comments={comments} />
       </div>
     </div>
   );
