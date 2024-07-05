@@ -1,6 +1,6 @@
+// src/app/Search/page.jsx
 "use client";
-
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { getAnimeResponse } from "@/libs/api";
 import AnimeList from "@/components/AnimeList";
@@ -169,20 +169,22 @@ export default function SearchPage() {
           Search
         </button>
       </form>
-      {isLoading ? (
-        <div className="flex items-center justify-center h-1/4">
-          <ReactLoading type="spin" color="#FEDD89" height="5%" width="5%" />
-        </div>
-      ) : (
-        <>
-          <AnimeList api={searchAnime} />
-          <Pagination
-            page={currentPage}
-            lastPage={lastPage}
-            setPage={setCurrentPage}
-          />
-        </>
-      )}
+      <Suspense fallback={<div>Loading...</div>}>
+        {isLoading ? (
+          <div className="flex items-center justify-center h-1/4">
+            <ReactLoading type="spin" color="#FEDD89" height="5%" width="5%" />
+          </div>
+        ) : (
+          <>
+            <AnimeList api={searchAnime} />
+            <Pagination
+              page={currentPage}
+              lastPage={lastPage}
+              setPage={setCurrentPage}
+            />
+          </>
+        )}
+      </Suspense>
     </>
   );
 }
