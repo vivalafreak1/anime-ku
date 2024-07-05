@@ -94,7 +94,13 @@ export default function SearchPage() {
   };
 
   return (
-    <>
+    <Suspense
+      fallback={
+        <div className="flex items-center justify-center h-1/4">
+          <ReactLoading type="spin" color="#FEDD89" height="5%" width="5%" />
+        </div>
+      }
+    >
       <Header title={`Hasil Pencarian: ${keyword || "All Anime"}`} />
       <form
         onSubmit={handleSearch}
@@ -169,22 +175,20 @@ export default function SearchPage() {
           Search
         </button>
       </form>
-      <Suspense fallback={<div>Loading...</div>}>
-        {isLoading ? (
-          <div className="flex items-center justify-center h-1/4">
-            <ReactLoading type="spin" color="#FEDD89" height="5%" width="5%" />
-          </div>
-        ) : (
-          <>
-            <AnimeList api={searchAnime} />
-            <Pagination
-              page={currentPage}
-              lastPage={lastPage}
-              setPage={setCurrentPage}
-            />
-          </>
-        )}
-      </Suspense>
-    </>
+      {isLoading ? (
+        <div className="flex items-center justify-center h-1/4">
+          <ReactLoading type="spin" color="#FEDD89" height="5%" width="5%" />
+        </div>
+      ) : (
+        <>
+          <AnimeList api={searchAnime} />
+          <Pagination
+            page={currentPage}
+            lastPage={lastPage}
+            setPage={setCurrentPage}
+          />
+        </>
+      )}
+    </Suspense>
   );
 }
