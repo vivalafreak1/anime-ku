@@ -1,7 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import ConditionalLayout from "@/components/ConditionalLayout";
 import Favicon from "/public/favicon.ico";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -15,10 +14,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="{inter.className} bg-color-dark min-h-screen flex-col flex">
-        <Navbar />
-        <main className="flex-grow">{children}</main>
-        <Footer />
+      <body
+        className={`${inter.className} bg-color-dark min-h-screen flex-col flex`}
+      >
+        <ConditionalLayout>{children}</ConditionalLayout>
       </body>
     </html>
   );

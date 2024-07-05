@@ -1,11 +1,22 @@
+// components/Navbar/UserActionButton.jsx
 import Link from "next/link";
-import { authUserSession } from "@/libs/auth";
+import { useEffect, useState } from "react";
+import { getSession } from "next-auth/react";
 
-export default async function UserActionButton() {
-  const user = await authUserSession();
+export default function UserActionButton() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchUserSession = async () => {
+      const session = await getSession();
+      setUser(session?.user ?? null);
+    };
+
+    fetchUserSession();
+  }, []);
 
   const actionLabel = user ? "Sign Out" : "Sign In";
-  const actionURL = user ? "/api/auth/signout" : "/api/auth/signin";
+  const actionURL = user ? "/auth/signout" : "/auth/signin";
 
   return (
     <div className="flex items-center gap-4">

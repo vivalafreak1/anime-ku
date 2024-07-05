@@ -1,7 +1,8 @@
+// src/libs/auth.js
 import { getServerSession } from "next-auth";
-import { authOption } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
-export async function authUserSession() {
-  const session = await getServerSession(authOption);
-  return session?.user;
+export async function authUserSession(req, res) {
+  const session = await getServerSession({ req, res, ...authOptions });
+  return session?.user ?? null;
 }
