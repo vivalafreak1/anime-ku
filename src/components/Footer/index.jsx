@@ -52,11 +52,6 @@ export default function Footer() {
                 Ongoing
               </Link>
             </li>
-            <li>
-              <Link href="/about" className="hover:text-color-orange">
-                About
-              </Link>
-            </li>
           </ul>
         </div>
 
