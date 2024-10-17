@@ -1,5 +1,5 @@
 const teamMembers = [
-  {
+  /*{
     name: "M. Mulyadi",
     npm: 50420685,
     position: "Product Manager",
@@ -12,7 +12,7 @@ const teamMembers = [
     position: "System Design",
     photo:
       "https://lh3.googleusercontent.com/pw/AP1GczOqTTJHgzUP0ui6moZXXFKTmCfe2Oi53uqCMuUEV0FTVwTQuyqMSJdJAdNWKOcCrKSQEu4HML4ZERJ5Pge1rvL7OZZ6I5GKEixTc4DAPqgpMifT0O6BBnIjVH4GjnCx8MIkApkLwo_m-s4XG28qlbqR=w686-h686-s-no-gm?authuser=0",
-  },
+  },*/
   {
     name: "Naufal Maulana Al Ghifari Irawan",
     npm: 50420956,
@@ -20,7 +20,7 @@ const teamMembers = [
     photo:
       "https://lh3.googleusercontent.com/pw/AP1GczMDbglzPaGIyzq5qufMXGTiIP75oWp-lQFEDNKmh3IXJ5upmiRmXpViODyPgs3w10fw-hG8XgUSrq_igsYU0d7Hx-84R-VJI1SkZ382a2uhdKwItoEyeAcpsE19kzqohrCf15Eh5fKTTjVhmVIHO4uR=w338-h338-s-no-gm?authuser=0",
   },
-  {
+  /*{
     name: "Rizky Bagaskara",
     npm: 51420127,
     position: "Database Engineer",
@@ -54,11 +54,11 @@ const teamMembers = [
     position: "UI UX Designer",
     photo:
       "https://lh3.googleusercontent.com/pw/AP1GczONT5roObQulZYMCGi-X578inPsh_U-OVM1ncOwW-NtZNZyg7o19u9Rr-rj1KOO89ElscOBBe_LmrtWLTVzAHT_yFaKeC40oBBlLs4YJ2VkXaT0HYDHLXX1YO1pzc8JhrkXeR6qk825X_uzZDQD3_ju=w309-h309-s-no-gm?authuser=0",
-  },
+  },*/
   {
     name: "Arief Taufik Rahman",
     npm: 50420221,
-    position: "Technical Writer",
+    position: "Front-End Web Developer",
     photo:
       "https://lh3.googleusercontent.com/pw/AP1GczODpc4kd78pIyJuJWSY8JF58pEXrdNUjiTkZQic7O87VUWw6jlAECePmN7-BsB7cD3MAeZGTIg3_Pde3pJYzMn6jR44mnFx58AGZJZSOvZNnBNjEsxdLVVKFhNUJ2re7c_Gv6ERFip0fsufdwToVVA5=w900-h900-s-no-gm?authuser=0",
   },
